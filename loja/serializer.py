@@ -1,21 +1,36 @@
 from rest_framework import serializers
 from loja.models import *
 from loja.serializer import *
+from loja.validators import *
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta :
         model = Cliente
         fields = '__all__'
+    def validate(self,data):
+        if not valida_cpf(data['cpf']):
+              raise serializers.ValidationError({"cpf":"O CPF deve Conter exatamente 11 digitos"})
+        if not valida_nome(data['nome']):
+              raise serializers.ValidationError({"nome":"O Nome deve somente letras"})
+        return data
 
 class ProdutoSerializer(serializers.ModelSerializer):
     class Meta :
         model = Produto
         fields = '__all__'
+    def validate(self,data):
+        if valida_preco(data['preco']):
+            raise serializers.ValidationError({"preco":"Valor menor que 0"})
+        return data
 
 class VendaSerializer(serializers.ModelSerializer):
     class Meta :
         model = Venda
         fields = '__all__'
+    def validate(self,data):
+        if valida_venda(data['total_venda']):
+            raise serializers.ValidationError({"total_venda":"Valor menor que 0"})
+        return data
 
 
 class ItemVendaSerializer(serializers.ModelSerializer):
