@@ -3,10 +3,12 @@ from django.contrib import admin
 from loja.models import Cliente,GrupoProduto,Produto,Vendedor,Venda,ItemVenda
 
 class Clientes(admin.ModelAdmin): 
-    list_display= ('cliente_id','nome', 'email')
+    list_display= ('cliente_id','nome', 'email', 'ativo')
     list_display_links = ('cliente_id', 'nome')
     search_fields = ('nome', 'email',)
     list_per_page = 10
+    list_editable = ('ativo',)
+    ordering = ('nome',)
 
 admin.site.register(Cliente,Clientes)
 

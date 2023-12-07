@@ -3,9 +3,11 @@ from django.db import models
 class Cliente(models.Model):
     cliente_id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=11, unique=True)
     email = models.EmailField(max_length=100)
     telefone = models.CharField(max_length=15)
     endereco = models.TextField()
+    ativo = models.BooleanField(default= True)
    
     def __str__(self):
         return self.nome
