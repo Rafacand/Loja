@@ -7,7 +7,7 @@ Estudo sobre api com python e django-rest-framework, aonde temos um banco de dad
 > Vendas(pedido);
 > Itens de cada venda efetuada;
 
-Por hora é possível acessar as rotas :
+Por hora é possível acessar as rotas via aws em uma ec2 com linux(até o dia 10):
 - [Clientes](http://3.84.156.158:8000/Clientes/)
 - [Vendas](http://3.84.156.158:8000/Vendas/)
 - [Produtos](http://3.84.156.158:8000/Produtos/)
