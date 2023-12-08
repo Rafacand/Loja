@@ -8,6 +8,7 @@ class Cliente(models.Model):
     telefone = models.CharField(max_length=15)
     endereco = models.TextField()
     ativo = models.BooleanField(default= True)
+    foto = models.ImageField(blank=True)
    
     def __str__(self):
         return self.nome

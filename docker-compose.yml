@@ -1,0 +1,26 @@
+setup:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=db
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - 5000:5000
+app:
+  build: .
+    container_name: django_api_rest
+    ports: 
+      - 8000:8000
+    volumes:
+      - .:/code
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local
