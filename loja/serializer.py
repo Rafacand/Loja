@@ -24,6 +24,8 @@ class ProdutoSerializer(serializers.ModelSerializer):
         return data
 
 class VendaSerializer(serializers.ModelSerializer):
+    cliente = serializers.ReadOnlyField(source='cliente.nome')
+    vendedor = serializers.ReadOnlyField(source='vendedor.nome')
     class Meta :
         model = Venda
         fields = '__all__'
