@@ -1,3 +1,4 @@
+
 ### Projeto visado em comunicação Via API
 Estudo sobre api com python e django-rest-framework, aonde temos um banco de dados com as seguintes tabelas 
 > Clientes;
@@ -13,13 +14,35 @@ Por hora é possível acessar as rotas via aws em uma ec2 com linux(até o dia 1
 - [Produtos](http://3.84.156.158:8000/Produtos/)
 - [Itens das Vendas](http://3.84.156.158:8000/ItemsVendas/)
 - [Vendas Feito Pelo Vendedor(id)](http://3.84.156.158:8000/vendedor/1/vendas/)
+ 
+<details>
+<summary> <b>Como Usar o projeto 08-12-23 </b> </summary>
+Instalar : <br>
 
-é possivel também pesquisar os clientes, por id, nome e cpf <br>
+- Sudo apt install python3.10-venv <br>
+ativar a venv <br>
+
+- source venv/bin/activate <br>
+
+Instalar os pacotes utilizando o comando : <br>
+- pip install -r requeriments.txt
+fazer as migrações
+- python manage.py makemigrations
+- python manage.py migrate
+
+e se tudo der certo rodar o servidor <br>
+- python manage.py runserver
+
+caso precise acessar o admin, criar um via :
+python manage.py createsuperuser
+</details>
+
+   
+É possivel também pesquisar os clientes, por id, nome e cpf <br>
 ![image](https://github.com/Rafacand/Loja/assets/37985239/9c0ba29a-18d9-4482-802f-60447991fcf2)
 
 Vendas pelo id do Vendedor <br>
 ![image](https://github.com/Rafacand/Loja/assets/37985239/1032b4e9-ff9b-41cb-be44-7f04eba71dbf)
-
 
 
 
